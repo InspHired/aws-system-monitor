@@ -53,7 +53,7 @@ function useServices(intervalMs = 5000) {
   const refresh = useCallback(async () => {
     try {
       setRefreshing(true);
-      const res = await fetch(import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api/v1/services');
+      const res = await fetch(import.meta.env.VITE_API_URL || 'https://aws-system-monitor.onrender.com/api/v1/services');
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setServices(await res.json());
       setLastUpdated(new Date());
